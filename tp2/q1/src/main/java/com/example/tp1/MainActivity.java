@@ -24,17 +24,15 @@ public class MainActivity extends AppCompatActivity {
         actionSum = (Button) findViewById(R.id.button);
         resultDisplay = (TextView) findViewById(R.id.result);
 
-        actionSum.setOnClickListener(new View.OnClickListener() {
+        actionSum.setOnClickListener(v -> sumAndDisplay());
 
-            public void onClick(View v){
-                int sum = 0;
-                int num1 = Integer.parseInt(firstVar.getText().toString());
-                int num2 = Integer.parseInt(secondVar.getText().toString());
-                sum = num1 + num2;
-                resultDisplay.setText(Integer.toString(sum));
-            }
+    }
 
-        });
-
+    private void sumAndDisplay() {
+        int sum = 0;
+        int num1 = Integer.parseInt(firstVar.getText().toString());
+        int num2 = Integer.parseInt(secondVar.getText().toString());
+        sum = num1 + num2;
+        resultDisplay.setText(Integer.toString(sum));
     }
 }
