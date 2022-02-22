@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/input3"
+        android:id="@+id/output3"
         android:layout_width="147dp"
         android:layout_height="51dp"
         android:layout_marginStart="8dp"
@@ -15,11 +15,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Z"
-        app:layout_constraintStart_toEndOf="@+id/input2"
+        app:layout_constraintStart_toEndOf="@+id/output2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/input1"
+        android:id="@+id/outpu1"
         android:layout_width="147dp"
         android:layout_height="51dp"
         android:layout_marginStart="4dp"
@@ -31,14 +31,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/input2"
+        android:id="@+id/output2"
         android:layout_width="147dp"
         android:layout_height="51dp"
         android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Y"
-        app:layout_constraintStart_toEndOf="@+id/input1"
+        app:layout_constraintStart_toEndOf="@+id/outpu1"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
