@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/q1" />
+            <option value="$PROJECT_DIR$/q1_parte2" />
             <option value="$PROJECT_DIR$/q2" />
             <option value="$PROJECT_DIR$/q3" />
           </set>
