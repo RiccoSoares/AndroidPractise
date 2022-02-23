@@ -9,14 +9,14 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 import android.hardware.SensorEventListener;
 import android.content.Context;
-import android.content.Intent;
-import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener{
-    TextView output;
+    TextView lightOutput;
+    TextView ambientTempOutput;
     private SensorManager sensorManager;
     private SensorEventListener sensorEventListener;
     private Sensor lightSensor;
+    private Sensor ambientTempSensor;
 
 
     @Override
@@ -24,28 +24,42 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        output = (TextView) findViewById(R.id.lightInfo);
+        lightOutput = (TextView) findViewById(R.id.lightInfo);
+        ambientTempOutput = (TextView) findViewById(R.id.ambientTempInfo);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        ambientTempSensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
 
-        if(lightSensor == null){
-            output.setText("No Light Sensor Found In Your Device");
+        /*if(lightSensor == null){
+            lightOutput.setText("No Light Sensor Found In Your Device");
             finish();
         }
+        if(ambientTempSensor == null){
+            ambientTempOutput.setText("No Pressure Sensor Found In Your Device");
+            finish();
+        }*/
 
     }
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent){
-        float lumValue = sensorEvent.values[0];
-        output.setText("Luminosity: " + lumValue);
-
+        switch(sensorEvent.sensor.getType()) {
+            case Sensor.TYPE_LIGHT:
+                float lumValue = sensorEvent.values[0];
+                lightOutput.setText("Luminosity: " + lumValue);
+                break;
+            case Sensor.TYPE_AMBIENT_TEMPERATURE:
+                float ambientTempValue = sensorEvent.values[0];
+                ambientTempOutput.setText("Ambient Temperature: " + ambientTempValue);
+                break;
+        }
     }
 
     @Override
     protected void onResume(){
         super.onResume();
         sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, ambientTempSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
