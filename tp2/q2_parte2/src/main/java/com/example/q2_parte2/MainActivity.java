@@ -1,4 +1,4 @@
-package com.example.q1_parte2;
+package com.example.q2_parte2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent){
-         float lumValue = sensorEvent.values[0];
-         output.setText("Luminosity: " + lumValue);
+        float lumValue = sensorEvent.values[0];
+        output.setText("Luminosity: " + lumValue);
 
     }
 
