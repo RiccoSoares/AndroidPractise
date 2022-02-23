@@ -30,14 +30,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
         ambientTempSensor = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
 
-        /*if(lightSensor == null){
+        if(lightSensor == null){
             lightOutput.setText("No Light Sensor Found In Your Device");
-            finish();
         }
         if(ambientTempSensor == null){
-            ambientTempOutput.setText("No Pressure Sensor Found In Your Device");
-            finish();
-        }*/
+            ambientTempOutput.setText("No Ambient Temperature Sensor Found In Your Device");
+        }
 
     }
 
@@ -65,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onPause(){
         super.onPause();
-        sensorManager.unregisterListener(sensorEventListener);
+        sensorManager.unregisterListener(this);
     }
 
     @Override
